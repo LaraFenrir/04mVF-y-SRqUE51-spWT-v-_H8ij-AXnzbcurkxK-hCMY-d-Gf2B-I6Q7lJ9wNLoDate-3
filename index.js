@@ -67,7 +67,7 @@ let params  = cmdParams;
     })
 }
 if(msg.content === prefix + "play"){
-Music.cmdMusic("play", msg, params.join(""), bot)
+Music.cmdMusic("play", msg, params.play(""), bot)
 }
 if(msg.content === prefix + "join"){
 Music.cmdMusic("join", msg, params.join(""), bot)
