@@ -55,6 +55,7 @@ function getCmdFunction(cmd) {
 }
 
 bot.on('message', msg => {
+	var prefix = "+"
     if (msg.content === (prefix+"ping")) {
       startTime = Date.now();
   msg.channel.sendMessage("Calcul en cours...").then((message) => {
