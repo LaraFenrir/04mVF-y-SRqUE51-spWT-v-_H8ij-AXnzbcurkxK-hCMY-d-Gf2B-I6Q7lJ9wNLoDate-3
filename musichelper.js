@@ -22,55 +22,55 @@ let guilds = {};
 /*
 The music command handler.
 */
-async function cmdMusic(type, msg, msgrep, bot, lang){
+async function cmdMusic(type, msg, msgrep, bot){
     if(!msg.guild.available) return;
 
     if (!guilds[msg.guild.id])
         guilds[msg.guild.id] = new MusicPlayer();
-    bot.I18n.use(lang);
+
 
     let guild = guilds[msg.guild.id];
     if(type){
         type.toLowerCase();
         switch (type){
             case 'play': 
-                return await processInput(msg, guild, msgrep, bot, lang);//ok
+                return await processInput(msg, guild, msgrep, bot);//ok
                 break;
             case 'skip':
-                    return await guild.skipSong(msg, bot, lang);//ok
+                    return await guild.skipSong(msg, bot);//ok
                 break;
             case 'pause':
-                return await guild.pauseSong(bot, lang);
+                return await guild.pauseSong(bot);
                 break;
             case 'resume':
-                return await guild.resumeSong(bot, lang);
+                return await guild.resumeSong(bot);
                 break;
             case 'queue':
-                return await guild.printQueue(msg, bot, lang);//ok
+                return await guild.printQueue(msg, bot);//ok
                 break;
             case 'np':
-                return await guild.nowPlaying(msg, bot, lang);//ok
+                return await guild.nowPlaying(msg, bot);//ok
                 break;
             case 'vol':
-                return await guild.setVolume(msg, msgrep, bot, lang);//ok
+                return await guild.setVolume(msg, msgrep, bot);//ok
                 break;
             case 'purge':
-                return await guild.purgeQueue(msg, bot, lang);//ok
+                return await guild.purgeQueue(msg, bot);//ok
                 break;
             case 'currentvol':
-                return await guild.contentVolume(msg, bot, lang);//ok
+                return await guild.contentVolume(msg, bot);//ok
                 break;
             case 'shuffle':
-                return await guild.shuffleQueue(msg, bot, lang);
+                return await guild.shuffleQueue(msg, bot);
                 break;
             case 'join':
-                return await guild.joinVc(msg, bot, lang);//ok
+                return await guild.joinVc(msg, bot);//ok
                 break;
             case 'leave':
-                return await guild.leaveVc(msg, bot, lang);//ok
+                return await guild.leaveVc(msg, bot);//ok
                 break;
             case 'radio':
-                return await processInputRadio(msg, guild, msgrep, bot, lang);
+                return await processInputRadio(msg, guild, msgrep, bot);
                 break;
             default:
                 return await msg.channel.send(`Please refer to ${tool.wrap('~help music')}.`);
@@ -87,12 +87,12 @@ function processInput(msg, guild, msgrep, bot, lang) {
     let url = msgrep;
     if (url && url !== '') {
         if (!url.startsWith('http')) { //Assume its a search.
-            processSearch(msg, guild, msgrep, bot, lang);
+            processSearch(msg, guild, msgrep, bot);
 
         }else if(url.search('twitch.tv') != -1){
             const regex = /(?:http(?:s|):\/\/|)(?:www\.|)twitch\.tv\/.+/;
             if (regex.test(url)){
-            processTwitch.song(msg, guild, url, bot, lang);
+            processTwitch.song(msg, guild, url, bot);
             }else{
             msg.channel.send(bot.I18n.translate`Error please include valide link for twitch`);                
             }
@@ -123,23 +123,23 @@ function processInput(msg, guild, msgrep, bot, lang) {
         } else if (url.search('youtube.com') != -1) { //Youtube.
             let playlist = url.match(/list=(\S+?)(&|\s|$|#)/); //Match playlist id.
             if (playlist) { //Playlist.
-                processYoutube.playlist(msg, guild, playlist[1], bot, lang);
+                processYoutube.playlist(msg, guild, playlist[1], bot);
             } else if (url.search(/v=(\S+?)(&|\s|$|#)/)) { //Video.
-                processYoutube.song(msg, guild, url, bot, lang);
+                processYoutube.song(msg, guild, url, bot);
             } else {
                 msg.channel.send(bot.I18n.translate`Invalid Youtube link`);
             }
         }else if (url.search('soundcloud.com') != -1) { //Soundcloud.
-            msg.channel.send(bot.I18n.translate`Gomen, Soundcloud music isn\'nt functional right now.`);
+            msg.channel.send(`Je peux pas trop pour l'instant.`);
         } else {
-            msg.channel.send(bot.I18n.translate`Gomen, I only support Youtube right now.`);
+            msg.channel.send(`Je supporte que youtube pour le moment`);
         }
     }
 }
 
 
 
-function processInputRadio(msg, guild, msgrep, bot, lang) {
+function processInputRadio(msg, guild, msgrep, bot) {
     let url = msgrep;
     if(msgrep.length == 0){
         guild.queueSong(new Song(`listen.moe`, `https://listen.moe`, Songtype.RADIOMOE, msg.author.tag, 0,
@@ -151,10 +151,10 @@ function processInputRadio(msg, guild, msgrep, bot, lang) {
                 console.error(e);
             }
         msg.channel.send(
-            new MessageEmbed().setDescription(bot.I18n.translate`Enqueued listen.moe requested by ${(msg.author.tag)}`)
+            new MessageEmbed().setDescription(`Musique envoyée par ${(msg.author.tag)}`)
         );
         if (guild.status != Statustype.PLAYING) {
-            guild.playSong(msg, bot, lang);
+            guild.playSong(msg, bot);
         }
        
     }
@@ -170,20 +170,20 @@ Processes a search using youtube-dl, pushing the resulting song to the queue.
 @param {String} seachQuery The search query.
 */
 
-function processSearch(msg, guild, searchQuery, bot, lang) {
+function processSearch(msg, guild, searchQuery, bot) {
 const opts = {
     maxResults: 3,
     key: config.api.youtube
 };
 ySearch(searchQuery, opts, function (err, results) {
         if (err) {
-            msg.channel.send(bot.I18n.translate`Sorry, I couldn't find matching song.`);
+            msg.channel.send(`Je peux pas chercher pour l'instant..`);
             return console.error(err);
         }
         for (var y = 0; results[y].kind === 'youtube#channel'; y++);
         ytdl.getInfo(results[y].link, function (err, song) {
             if (err) {
-                msg.channel.send(`Sorry, I couldn't find matching song.`);
+                msg.channel.send(`Je peux pas trouver de musiques comme ça..`);
                 return console.error(err);
             }
 
@@ -195,7 +195,7 @@ ySearch(searchQuery, opts, function (err, results) {
             .setThumbnail(`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`)
         );
         if (guild.status != Statustype.PLAYING) {
-            guild.playSong(msg, bot, lang);
+            guild.playSong(msg, bot);
         }
     
         });
@@ -209,7 +209,7 @@ const processTwitch = {
             if (err){
 
             console.log(err);
-            msg.channel.send(bot.I18n.translate`Gomen I couldn't queue your song.`);
+            msg.channel.send(`Désolé, je peux pas mettre ta musique en attente..`);
                 return;
             }
             var url2 = filterFormats(song);
@@ -224,7 +224,7 @@ const processTwitch = {
                 new MessageEmbed().setDescription(`Enqueued ${song.uploader_id.trim()} to position **${guild.queue.length}**`)
                 .setThumbnail(`https://www.seeklogo.net/wp-content/uploads/2016/08/twitch-logo-preview.png`));
             if (guild.status != Statustype.PLAYING) {
-                guild.playSong(msg, bot, lang);
+                guild.playSong(msg, bot);
             }
 
         });
@@ -240,7 +240,7 @@ const processSpotify = {
                 new MessageEmbed().setDescription(`Enqueued ${"song.uploader_id.trim()"} to position **${guild.queue.length}**`)
                 .setThumbnail(`https://www.seeklogo.net/wp-content/uploads/2016/08/twitch-logo-preview.png`));
             if (guild.status != Statustype.PLAYING) {
-                guild.playSong(msg, bot, lang);
+                guild.playSong(msg, bot);
             }
 
         
@@ -258,7 +258,7 @@ const processYoutube = {
         ytdl.getInfo(url, (err, song) => {
             if (err) {
                 console.log(err);
-                msg.channel.send(bot.I18n.translate`Gomen I couldn't queue your song.`);
+                msg.channel.send(`Je peux pas mettre ta musique en attente pour l'instant.`);
                 return;
             }       
             
@@ -270,7 +270,7 @@ const processYoutube = {
                 .setThumbnail(`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`));
 
             if (guild.status != Statustype.PLAYING) {
-                guild.playSong(msg, bot, lang);
+                guild.playSong(msg, bot);
             }
         });
     },
@@ -279,7 +279,7 @@ const processYoutube = {
     Processes a Youtube playlist.
     @param {String} playlistId The ID of the Youtube playlist.
     */
-    playlist(msg, guild, playlistId, bot, lang) {
+    playlist(msg, guild, playlistId, bot) {
         const youtubeApiUrl = 'https://www.googleapis.com/youtube/v3';
 
         Promise.all([getPlaylistName(), getPlaylistSongs([], null)])
@@ -287,7 +287,7 @@ const processYoutube = {
             .catch(err => {
                 console.log(err);
                 msg.channel.send(
-                   bot.I18n.translate`Gomen, I couldn't add your playlist to the queue. Try again later.`
+                   `Je peux pas mettre ta musique en attente pour l'instant..`
                 )
             });
 
@@ -344,11 +344,11 @@ const processYoutube = {
             }
 
             msg.channel.send(
-                new MessageEmbed().setDescription(bot.I18n.translate`Enqueued ${playlistItems.length} songs from ${playlistTitle} requested by ${(msg.author.tag)}`)
+                new MessageEmbed().setDescription(`Mise en place de la musique ${playlistItems.length} par ${playlistTitle} demandée par ${(msg.author.tag)}`)
                 );
 
             if (guild.status != Statustype.PLAYING) {
-                guild.playSong(msg, bot, lang);
+                guild.playSong(msg, bot);
             }
         }
     },
