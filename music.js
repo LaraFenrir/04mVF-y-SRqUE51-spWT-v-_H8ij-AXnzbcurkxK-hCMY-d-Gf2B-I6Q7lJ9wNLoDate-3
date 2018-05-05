@@ -8,8 +8,6 @@ const Song = require('./Song.js');
 const MusicPlayer = require('./MusicPlayer.js');
 const rp = require('request-promise');
 
-module.exports.processCommand = processCommand;
-
 let guilds = {};
 
 bot.on('message', msg => { 
