@@ -4,7 +4,7 @@
   "description": "A personal Discord bot written using discord.js.",
   "main": "index.js",
   "dependencies": {
-    "discord.js": "^11.3.2",
+    "discord.js": "git+https://gitlab.com/Kami-Kami/discord.js.git",
     "discord.js-music-v11": "^1.3.4",
     "ffmpeg": "0.0.4",
     "ffmpeg-binaries": "^3.2.2-3",
