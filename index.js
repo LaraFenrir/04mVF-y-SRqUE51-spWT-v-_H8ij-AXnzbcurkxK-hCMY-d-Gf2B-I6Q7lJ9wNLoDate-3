@@ -54,6 +54,14 @@ function getCmdFunction(cmd) {
     return COMMANDS[cmd] ? COMMANDS[cmd] : () => {};
 }
 
-
+bot.on('message', msg => {
+    if (msg.content === (prefix+"ping")) {
+      startTime = Date.now();
+  msg.channel.sendMessage("Calcul en cours...").then((message) => {
+    endTime = Date.now();
+     message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
+    })
+}
+});
 
 
