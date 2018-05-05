@@ -12,44 +12,68 @@ module.exports.processCommand = processCommand;
 
 let guilds = {};
 
-function processCommand(msg) {
-    if (!msg.guild.available) return;
-        //Add guild to the guild list.
-    if (!guilds[msg.guild.id])
-        guilds[msg.guild.id] = new MusicPlayer();
-    let guild = guilds[msg.guild.id];
-
-    let musicCmd = msg.content.split(/\s+/)[1];
-    if (musicCmd)
-        musicCmd.toLowerCase();
-    switch (musicCmd) {
-        case 'play':
-            return processInput(msg, guild);
-        
-        case 'skip':
-            return guild.skipSong(msg);
-        case 'pause':
-            return guild.pauseSong();
-        case 'resume':
-            return guild.resumeSong();
-        case 'queue':
-            return guild.printQueue(msg);
-        case 'np':
-            return guild.nowPlaying(msg);
-        case 'vol':
-            return guild.setVolume(msg);
-        case 'purge':
-            return guild.purgeQueue(msg);
-
-        case 'join':
-            return guild.joinVc(msg);
-        case 'leave':
-            return guild.leaveVc(msg);
-        default:
-            msg.channel.send(`Tu t'es planté, regarde comment faire ${tool.wrap('~help music')}.`);
+bot.on('message', msg => { 
+    var prefix = "+"
+    if (msg.content === (prefix+"play")) {
+        processInput(msg, guild); 
     }
-}
+    });
+        
+bot.on('message', msg => { 
+    var prefix = "+"
+    if (msg.content === (prefix+"skip")) {
+        guild.skipSong(msg); 
+    }
+    });
+bot.on('message', msg => { 
+    var prefix = "+"
+    if (msg.content === (prefix+"pause")) {
+        guild.pauseSong(); 
+    }
+    });
+bot.on('message', msg => { 
+    var prefix = "+"
+    if (msg.content === (prefix+"resume")) {
+        guild.resumeSong(); 
+    }
+    });
+bot.on('message', msg => { 
+    var prefix = "+"
+    if (msg.content === (prefix+"queue")) {
+        guild.printQueue(msg); 
+    }
+    });
+bot.on('message', msg => { 
+    var prefix = "+"
+    if (msg.content === (prefix+"np")) {
+        guild.nowPlaying(msg); 
+    }
+    });
+bot.on('message', msg => { 
+    var prefix = "+"
+    if (msg.content === (prefix+"vol")) {
+        guild.setVolume(msg); 
+    }
+    });
+bot.on('message', msg => { 
+    var prefix = "+"
+    if (msg.content === (prefix+"purge")) {
+        guild.purgeQueue(msg); 
+    }
+    });
 
+bot.on('message', msg => { 
+    var prefix = "+"
+    if (msg.content === (prefix+"join")) {
+        guild.joinVc(msg); 
+    }
+    });
+bot.on('message', msg => { 
+    var prefix = "+"
+    if (msg.content === (prefix+"leave")) {
+        guild.leaveVc(msg); 
+    }
+    });
 
 function processInput(msg, guild) {
     let url = msg.content.split(/\s+/).slice(2).join(' ');
