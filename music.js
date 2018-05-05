@@ -11,64 +11,44 @@ const Discord = require('discord.js');
 
 let guilds = {};
 var bot = new Discord.Client();
+
 bot.on('message', msg => { 
-    var prefix = "+"
+    const prefix = "+"
     if (msg.content === (prefix+"play")) {
         processInput(msg, guild); 
     }
-    });
-        
-bot.on('message', msg => { 
-    var prefix = "+"
+
     if (msg.content === (prefix+"skip")) {
         guild.skipSong(msg); 
     }
-    });
-bot.on('message', msg => { 
-    var prefix = "+"
+
     if (msg.content === (prefix+"pause")) {
         guild.pauseSong(); 
     }
-    });
-bot.on('message', msg => { 
-    var prefix = "+"
+
     if (msg.content === (prefix+"resume")) {
         guild.resumeSong(); 
     }
-    });
-bot.on('message', msg => { 
-    var prefix = "+"
+
     if (msg.content === (prefix+"queue")) {
         guild.printQueue(msg); 
     }
-    });
-bot.on('message', msg => { 
-    var prefix = "+"
+
     if (msg.content === (prefix+"np")) {
         guild.nowPlaying(msg); 
     }
-    });
-bot.on('message', msg => { 
-    var prefix = "+"
+
     if (msg.content === (prefix+"vol")) {
         guild.setVolume(msg); 
     }
-    });
-bot.on('message', msg => { 
-    var prefix = "+"
+
     if (msg.content === (prefix+"purge")) {
         guild.purgeQueue(msg); 
     }
-    });
 
-bot.on('message', msg => { 
-    var prefix = "+"
     if (msg.content === (prefix+"join")) {
         guild.joinVc(msg); 
     }
-    });
-bot.on('message', msg => { 
-    var prefix = "+"
     if (msg.content === (prefix+"leave")) {
         guild.leaveVc(msg); 
     }
