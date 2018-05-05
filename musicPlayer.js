@@ -36,9 +36,9 @@ class MusicPlayer {
     /*
     A recursive function that plays the queue.
     */
-    async playSong(msg, bot, lang) {
+    async playSong(msg, bot) {
         if (this.queue.length === 0) {
-            this.musicChannel.send(bot.I18n.translate`Queue complete.`);
+            this.musicChannel.send(`J'ai fini de tout jouer !`);
             this.changeStatus(Statustype.STOPPED);
         } else if (this.voiceConnection) {
             let song = this.queue[0];
@@ -62,16 +62,16 @@ class MusicPlayer {
                 console.log(error);
                 this.dispatch = null;
                 this.queue.shift();
-                return this.playSong(msg, bot, lang);
+                return this.playSong(msg, bot);
             }
 
             this.dispatch.once('start', () => {
                 this.musicChannel.send(
                     new MessageEmbed()
-                    .setTitle(bot.I18n.translate`🎵 \`${song.title}\``)
+                    .setTitle(`🎵 \`${song.title}\``)
                     .setURL(song.url)
-                    .addField(bot.I18n.translate`Time`, `${song.time}`, true)
-                    .addField(bot.I18n.translate`Request by`, `${song.author}`, true)
+                    .addField(`temps`, `${song.time}`, true)
+                    .addField(`Demandée par`, `${song.author}`, true)
                     .setThumbnail(song.thumbnail)
                 );
                 this.changeStatus(Statustype.PLAYING);
@@ -82,14 +82,14 @@ class MusicPlayer {
                 console.log(error);
                 this.dispatch = null;
                 this.queue.shift();
-                setTimeout(() => { this.playSong(msg, bot, lang) }, 100);
+                setTimeout(() => { this.playSong(msg, bot) }, 100);
             });
 
             this.dispatch.once('end', reason => {
                 this.dispatch = null;
                 this.queue.shift();
                 if (reason != 'leave') {
-                    setTimeout(() => this.playSong(msg, bot, lang), 100);
+                    setTimeout(() => this.playSong(msg, bot), 100);
                 }
             });
 
@@ -97,8 +97,8 @@ class MusicPlayer {
                 console.log(info);
             });
         } else {
-            msg.channel.send(bot.I18n.translate
-                `Please summon me using \`join\` to start playing the queue.`
+            msg.channel.send(
+                `Fait moi venir en utilisant \`join\` pour jouer ta musique`
             );
         }
     }
@@ -107,14 +107,14 @@ class MusicPlayer {
     /*
     Skips the current song.
     */
-    skipSong(msg, bot, lang) {
+    skipSong(msg, bot) {
         if (this.dispatch && this.status === Statustype.PLAYING) {
             this.musicChannel.send(
-                new MessageEmbed().setDescription(bot.I18n.translate`⏩ \`${this.queue[0].title}\``)
+                new MessageEmbed().setDescription(`⏩ \`${this.queue[0].title}\``)
             );
             this.dispatch.end();
         } else {
-            this.musicChannel.send(bot.I18n.translate`There's nothing to skip !`);
+            this.musicChannel.send(`Rien à skip !`);
         }
     }
 
