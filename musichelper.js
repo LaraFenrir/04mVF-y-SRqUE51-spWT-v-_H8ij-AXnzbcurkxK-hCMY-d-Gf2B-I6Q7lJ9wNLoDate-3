@@ -27,7 +27,6 @@ async function cmdMusic(type, msg, msgrep, bot, lang){
 
     if (!guilds[msg.guild.id])
         guilds[msg.guild.id] = new MusicPlayer();
-    bot.I18n.use(lang);
 
     let guild = guilds[msg.guild.id];
     if(type){
