@@ -225,12 +225,12 @@ class MusicPlayer {
                 this.dispatch.setVolume(vol);
                 this.volume = Math.ceil(vol);
                 msg.channel.send(
-                    new MessageEmbed().setDescription(bot.I18n.translate`🔈 \`${vol * 100}/100\`` ));
+                    new MessageEmbed().setDescription(`🔈 \`${vol * 100}/100\`` ));
             } else {
-                msg.channel.send(bot.I18n.translate`Nothing is playing right now.`);
+                msg.channel.send(`Aucunes musique n'est jouée pour l'instant`);
             }
         } else {
-            msg.channel.send(bot.I18n.translate`Use a number between 0 and 100 !`);
+            msg.channel.send(`Utilise un chiffre entre 1 et 100 !`);
         }
     }
 
@@ -240,7 +240,7 @@ class MusicPlayer {
     contentVolume(msg, bot, lang){
         var vol = this.volume;
         msg.channel.send(
-                    new MessageEmbed().setDescription(bot.I18n.translate`🔈 \`${vol * 100}/100\``));
+                    new MessageEmbed().setDescription(`🔈 \`${vol * 100}/100\``));
     }
     /*
     Summons the bot to the user's voice channel.
@@ -250,7 +250,7 @@ class MusicPlayer {
             if (this.voiceConnection === null) {
                 this.musicChannel = msg.channel;
                 this.musicChannel.send(
-                    new MessageEmbed().setDescription(bot.I18n.translate`Joined and bound to 🔈**${msg.member.voiceChannel.name}** and #**${this.musicChannel.name}**.`)
+                    new MessageEmbed().setDescription(`À rejoin 🔈**${msg.member.voiceChannel.name}** et c'est lié à #**${this.musicChannel.name}**.`)
                 );
                 /*const streamOptions = { seek: 0, volume: 1 };
 
@@ -270,7 +270,7 @@ class MusicPlayer {
             }
         } else {
             msg.channel.send(
-                bot.I18n.translate`You're not in a voice channel! `
+                `Tu n'est pas dans un channel.`
             );
         }
     }
