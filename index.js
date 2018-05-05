@@ -4,7 +4,7 @@ var token = process.env.TOKEN
 
 const config = require('./config.json');
 const cmds = require('./commands.js');
-const music = require('./musichelper.js');
+const Music = require('./musichelper.js');
 const tool = require('./tool.js');
 
 const prompt = require('prompt');
@@ -56,12 +56,22 @@ function getCmdFunction(cmd) {
 
 bot.on('message', msg => {
 	var prefix = "+"
+let content   = msg.content;
+let cmdName   = content.split(' ')[0].toLowerCase();
+let cmdParams = content.substring(cmdName.length + 1).split(' ');
+let params  = cmdParams;
     if (msg.content === (prefix+"ping")) {
      var startTime = Date.now();
   msg.channel.sendMessage("Calcul en cours...").then((message) => {
    var endTime = Date.now();
      message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
     })
+}
+if(msg.content === prefix + join){
+Music.cmdMusic("join", msg, params.join(""), bot)
+}
+if(msg.content === prefix + play){
+Music.cmdMusic("play", msg, params.play(""), bot)
 }
 });
 
