@@ -66,11 +66,11 @@ let params  = cmdParams;
      message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
     })
 }
-if(msg.content === prefix + "join"){
-Music.cmdMusic("join", msg, params.join(""), bot)
-}
 if(msg.content === prefix + "play"){
 Music.cmdMusic("play", msg, params.join(""), bot)
+}
+if(msg.content === prefix + "join"){
+Music.cmdMusic("join", msg, params.join(""), bot)
 }
 });
 
