@@ -9,7 +9,7 @@ const MusicPlayer = require('./MusicPlayer.js');
 const rp = require('request-promise');
 
 let guilds = {};
-
+var bot = new Discord.Client();
 bot.on('message', msg => { 
     var prefix = "+"
     if (msg.content === (prefix+"play")) {
