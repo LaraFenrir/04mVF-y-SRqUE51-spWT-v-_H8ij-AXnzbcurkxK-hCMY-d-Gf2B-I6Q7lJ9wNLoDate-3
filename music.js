@@ -7,6 +7,7 @@ const ySearch = require("youtube-search");
 const Song = require('./Song.js');
 const MusicPlayer = require('./MusicPlayer.js');
 const rp = require('request-promise');
+const Discord = require('discord.js');
 
 let guilds = {};
 var bot = new Discord.Client();
