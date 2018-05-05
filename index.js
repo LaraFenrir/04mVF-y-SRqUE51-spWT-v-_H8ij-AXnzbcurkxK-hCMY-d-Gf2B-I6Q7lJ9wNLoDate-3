@@ -57,9 +57,9 @@ function getCmdFunction(cmd) {
 bot.on('message', msg => {
 	var prefix = "+"
     if (msg.content === (prefix+"ping")) {
-      startTime = Date.now();
+     var startTime = Date.now();
   msg.channel.sendMessage("Calcul en cours...").then((message) => {
-    endTime = Date.now();
+   var endTime = Date.now();
      message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
     })
 }
