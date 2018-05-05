@@ -1,5 +1,5 @@
 'use strict';
-const tool = require('../tool.js');
+const tool = require('./tool.js');
 
 /*
 The music player for a guild.
