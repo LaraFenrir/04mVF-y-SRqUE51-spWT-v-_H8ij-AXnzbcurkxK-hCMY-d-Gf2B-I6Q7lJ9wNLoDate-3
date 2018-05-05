@@ -3,11 +3,11 @@ Processes music commands. Constructs Songs and manages MusicPlayers.
 */
 'use strict';
 const config = require('./config.json');
-let Statustype = require('./structures/constant').STATUS; 
-let Songtype = require('./structures/constant').SONG; 
+let Statustype = require('./constant').STATUS; 
+let Songtype = require('./constant').SONG; 
 
-const Song = require('./structures/song.js');
-const MusicPlayer = require('./structures/musicPlayer.js');
+const Song = require('./song.js');
+const MusicPlayer = require('./musicPlayer.js');
 const { MessageEmbed } = require('discord.js');
 const ySearch = require("youtube-search");
 const youtubeDL = require('youtube-dl');
