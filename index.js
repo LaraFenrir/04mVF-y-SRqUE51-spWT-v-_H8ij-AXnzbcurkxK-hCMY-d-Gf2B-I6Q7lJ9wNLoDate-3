@@ -18,7 +18,7 @@ bot.on('ready', () => {
     console.log(`${bot.user.username}  starting.`);
     console.log(`Serving ${bot.guilds.size} guilds.`);
 
-    bot.user.setGame(config.prefix + 'help');
+    bot.user.setGame("Être dev par SCP_One_Zero_Six [+help]");
 
 
     //Internal bot commands.
