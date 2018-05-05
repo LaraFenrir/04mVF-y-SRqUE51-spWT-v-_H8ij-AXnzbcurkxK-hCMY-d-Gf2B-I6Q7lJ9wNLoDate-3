@@ -14,8 +14,15 @@ let guilds = {};
 
 function processCommand(msg) {
     if (!msg.guild.available) return;
+        //Add guild to the guild list.
+    if (!guilds[msg.guild.id])
+        guilds[msg.guild.id] = new MusicPlayer();
+    let guild = guilds[msg.guild.id];
 
-    switch() {
+    let musicCmd = msg.content.split(/\s+/)[1];
+    if (musicCmd)
+        musicCmd.toLowerCase();
+    switch (musicCmd) {
         case 'play':
             return processInput(msg, guild);
         
