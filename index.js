@@ -66,16 +66,6 @@ let params  = cmdParams;
      message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
     })
 }
-if(msg.content === prefix + "play"){
-    if(params.join(" ").length === 0) return msg.channel.send("Please include a title or link");
-Music.cmdMusic("play", msg, params.join(" "), bot);
-}
-if(msg.content === prefix + "join"){
-Music.cmdMusic("join", msg, params.join(""), bot)
-}
-if(msg.content === prefix + "leave"){
-Music.cmdMusic("leave", msg, params.join(""), bot)
-}
 });
 
 
