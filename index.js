@@ -4,7 +4,6 @@ var token = process.env.TOKEN
 
 const config = require('./config.json');
 const cmds = require('./commands.js');
-const Music = require('./musichelper.js');
 const tool = require('./tool.js');
 
 const prompt = require('prompt');
