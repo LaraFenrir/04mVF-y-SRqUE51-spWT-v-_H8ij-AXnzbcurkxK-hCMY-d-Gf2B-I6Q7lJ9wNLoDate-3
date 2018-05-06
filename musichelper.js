@@ -169,7 +169,7 @@ Processes a search using youtube-dl, pushing the resulting song to the queue.
 @param {String} seachQuery The search query.
 */
 
-function processSearch(msg, guild, searchQuery, bot, lang) {
+function processSearch(msg, guild, searchQuery, bot) {
 const opts = {
     maxResults: 3,
     key: config.api.youtube
@@ -194,7 +194,7 @@ ySearch(searchQuery, opts, function (err, results) {
             .setThumbnail(`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`)
         );
         if (guild.status != Statustype.PLAYING) {
-            guild.playSong(msg, bot, lang);
+            guild.playSong(msg, bot);
         }
     
         });
@@ -203,7 +203,7 @@ ySearch(searchQuery, opts, function (err, results) {
 
 /*Processing function for Twitch links*/
 const processTwitch = {
-    song(msg, guild, url, bot, lang){
+    song(msg, guild, url, bot){
         youtubeDL.getInfo(url, (err, song) =>{
             if (err){
 
@@ -253,11 +253,11 @@ const processYoutube = {
     Processes a Youtube song, pushing it to the queue.
     @param {String} url The URL of the new song.
     */
-    song(msg, guild, url, bot, lang) {
+    song(msg, guild, url, bot) {
         ytdl.getInfo(url, (err, song) => {
             if (err) {
                 console.log(err);
-                msg.channel.send(bot.I18n.translate`Gomen I couldn't queue your song.`);
+                msg.channel.send(`Gomen I couldn't queue your song.`);
                 return;
             }       
             
@@ -269,7 +269,7 @@ const processYoutube = {
                 .setThumbnail(`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`));
 
             if (guild.status != Statustype.PLAYING) {
-                guild.playSong(msg, bot, lang);
+                guild.playSong(msg, bot);
             }
         });
     },
@@ -278,11 +278,11 @@ const processYoutube = {
     Processes a Youtube playlist.
     @param {String} playlistId The ID of the Youtube playlist.
     */
-    playlist(msg, guild, playlistId, bot, lang) {
+    playlist(msg, guild, playlistId, bot) {
         const youtubeApiUrl = 'https://www.googleapis.com/youtube/v3';
 
         Promise.all([getPlaylistName(), getPlaylistSongs([], null)])
-            .then(results => addToQueue(results[0], results[1], bot, lang))
+            .then(results => addToQueue(results[0], results[1], bot))
             .catch(err => {
                 console.log(err);
                 msg.channel.send(
