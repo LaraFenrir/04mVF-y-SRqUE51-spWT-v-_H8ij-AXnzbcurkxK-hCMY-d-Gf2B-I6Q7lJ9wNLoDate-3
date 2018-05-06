@@ -67,11 +67,12 @@ let params  = cmdParams;
     })
 }
 if(msg.content === prefix + "play"){
-Music.cmdMusic("play", msg, params.join(""), bot)
+Music.cmdMusic("join", msg, params.join(""), bot)
 	message.channel.send("test")
 }
 if(msg.content === prefix + "join"){
 Music.cmdMusic("join", msg, params.join(""), bot)
+	message.channel.send("test")
 }
 });
 
