@@ -36,37 +36,37 @@ async function cmdMusic(type, msg, msgrep, bot, lang){
                 return await processInput(msg, guild, msgrep, bot, lang);//ok
                 break;
             case 'skip':
-                    return await guild.skipSong(msg, bot, lang);//ok
+                    return await guild.skipSong(msg, bot);//ok
                 break;
             case 'pause':
-                return await guild.pauseSong(bot, lang);
+                return await guild.pauseSong(bot);
                 break;
             case 'resume':
-                return await guild.resumeSong(bot, lang);
+                return await guild.resumeSong(bot);
                 break;
             case 'queue':
-                return await guild.printQueue(msg, bot, lang);//ok
+                return await guild.printQueue(msg, bot);//ok
                 break;
             case 'np':
-                return await guild.nowPlaying(msg, bot, lang);//ok
+                return await guild.nowPlaying(msg, bot);//ok
                 break;
             case 'vol':
-                return await guild.setVolume(msg, msgrep, bot, lang);//ok
+                return await guild.setVolume(msg, msgrep, bot);//ok
                 break;
             case 'purge':
-                return await guild.purgeQueue(msg, bot, lang);//ok
+                return await guild.purgeQueue(msg, bot);//ok
                 break;
             case 'currentvol':
-                return await guild.contentVolume(msg, bot, lang);//ok
+                return await guild.contentVolume(msg, bot);//ok
                 break;
             case 'shuffle':
-                return await guild.shuffleQueue(msg, bot, lang);
+                return await guild.shuffleQueue(msg, bot);
                 break;
             case 'join':
-                return await guild.joinVc(msg, bot, lang);//ok
+                return await guild.joinVc(msg, bot);//ok
                 break;
             case 'leave':
-                return await guild.leaveVc(msg, bot, lang);//ok
+                return await guild.leaveVc(msg, bot);//ok
                 break;
             case 'radio':
                 return await processInputRadio(msg, guild, msgrep, bot, lang);
@@ -124,14 +124,14 @@ function processInput(msg, guild, msgrep, bot, lang) {
             if (playlist) { //Playlist.
                 processYoutube.playlist(msg, guild, playlist[1], bot, lang);
             } else if (url.search(/v=(\S+?)(&|\s|$|#)/)) { //Video.
-                processYoutube.song(msg, guild, url, bot, lang);
+                processYoutube.song(msg, guild, url, bot);
             } else {
-                msg.channel.send(bot.I18n.translate`Invalid Youtube link`);
+                msg.channel.send(`Invalid Youtube link`);
             }
         }else if (url.search('soundcloud.com') != -1) { //Soundcloud.
-            msg.channel.send(bot.I18n.translate`Gomen, Soundcloud music isn\'nt functional right now.`);
+            msg.channel.send(`Gomen, Soundcloud music isn\'nt functional right now.`);
         } else {
-            msg.channel.send(bot.I18n.translate`Gomen, I only support Youtube right now.`);
+            msg.channel.send(`Gomen, I only support Youtube right now.`);
         }
     }
 }
@@ -150,7 +150,7 @@ function processInputRadio(msg, guild, msgrep, bot, lang) {
                 console.error(e);
             }
         msg.channel.send(
-            new MessageEmbed().setDescription(bot.I18n.translate`Enqueued listen.moe requested by ${(msg.author.tag)}`)
+            new MessageEmbed().setDescription(`Enqueued listen.moe requested by ${(msg.author.tag)}`)
         );
         if (guild.status != Statustype.PLAYING) {
             guild.playSong(msg, bot, lang);
@@ -176,7 +176,7 @@ const opts = {
 };
 ySearch(searchQuery, opts, function (err, results) {
         if (err) {
-            msg.channel.send(bot.I18n.translate`Sorry, I couldn't find matching song.`);
+            msg.channel.send(`Sorry, I couldn't find matching song.`);
             return console.error(err);
         }
         for (var y = 0; results[y].kind === 'youtube#channel'; y++);
@@ -208,7 +208,7 @@ const processTwitch = {
             if (err){
 
             console.log(err);
-            msg.channel.send(bot.I18n.translate`Gomen I couldn't queue your song.`);
+            msg.channel.send(`Gomen I couldn't queue your song.`);
                 return;
             }
             var url2 = filterFormats(song);
@@ -286,7 +286,7 @@ const processYoutube = {
             .catch(err => {
                 console.log(err);
                 msg.channel.send(
-                   bot.I18n.translate`Gomen, I couldn't add your playlist to the queue. Try again later.`
+                   `Gomen, I couldn't add your playlist to the queue. Try again later.`
                 )
             });
 
