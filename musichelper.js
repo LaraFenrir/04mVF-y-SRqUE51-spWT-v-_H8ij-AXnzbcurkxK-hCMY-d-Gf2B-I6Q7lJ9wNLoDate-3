@@ -22,7 +22,7 @@ let guilds = {};
 /*
 The music command handler.
 */
-async function cmdMusic(type, msg, msgrep, bot, lang){
+async function cmdMusic(type, msg, msgrep, bot){
     if(!msg.guild.available) return;
 
     if (!guilds[msg.guild.id])
@@ -33,7 +33,7 @@ async function cmdMusic(type, msg, msgrep, bot, lang){
         type.toLowerCase();
         switch (type){
             case 'play': 
-                return await processInput(msg, guild, msgrep, bot, lang);//ok
+                return await processInput(msg, guild, msgrep, bot);//ok
                 break;
             case 'skip':
                     return await guild.skipSong(msg, bot);//ok
@@ -69,7 +69,7 @@ async function cmdMusic(type, msg, msgrep, bot, lang){
                 return await guild.leaveVc(msg, bot);//ok
                 break;
             case 'radio':
-                return await processInputRadio(msg, guild, msgrep, bot, lang);
+                return await processInputRadio(msg, guild, msgrep, bot);
                 break;
             default:
                 return await msg.channel.send(`Please refer to ${tool.wrap('~help music')}.`);
@@ -82,21 +82,21 @@ async function cmdMusic(type, msg, msgrep, bot, lang){
 Processes user input for ~play command calls.
 Determines what kind of input (search query, youtube video/playlist, soundcloud song/playlist) has been given, and proceeds accordingly.
 */
-function processInput(msg, guild, msgrep, bot, lang) {
+function processInput(msg, guild, msgrep, bot) {
     let url = msgrep;
     if (url && url !== '') {
         if (!url.startsWith('http')) { //Assume its a search.
-            processSearch(msg, guild, msgrep, bot, lang);
+            processSearch(msg, guild, msgrep, bot);
 
         }else if(url.search('twitch.tv') != -1){
             const regex = /(?:http(?:s|):\/\/|)(?:www\.|)twitch\.tv\/.+/;
             if (regex.test(url)){
-            processTwitch.song(msg, guild, url, bot, lang);
+            processTwitch.song(msg, guild, url, bot);
             }else{
-            msg.channel.send(bot.I18n.translate`Error please include valide link for twitch`);                
+            msg.channel.send(`Error please include valide link for twitch`);                
             }
         }else if(url.search('spotify.com') != -1){
-            msg.channel.send(bot.I18n.translate`Gomen, Soundcloud, Spotify isn\'nt functional right now.`);
+            msg.channel.send(`Gomen, Soundcloud, Spotify isn\'nt functional right now.`);
        /* const regex = /(?:http(?:s|):\/\/|)(?:www\.|)open\.spotify\.com\/.+/;
          if (regex.test(url)){
           const path = url.split('/');
