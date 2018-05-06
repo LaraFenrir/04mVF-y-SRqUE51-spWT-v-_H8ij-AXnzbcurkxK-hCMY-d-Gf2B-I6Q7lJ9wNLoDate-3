@@ -73,6 +73,9 @@ Music.cmdMusic("play", msg, params.join(" "), bot);
 if(msg.content === prefix + "join"){
 Music.cmdMusic("join", msg, params.join(""), bot)
 }
+if(msg.content === prefix + "leave"){
+Music.cmdMusic("leave", msg, params.join(""), bot)
+}
 });
 
 
