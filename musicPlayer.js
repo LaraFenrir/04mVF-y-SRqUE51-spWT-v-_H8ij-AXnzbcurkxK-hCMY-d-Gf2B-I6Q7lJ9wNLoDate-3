@@ -121,24 +121,24 @@ class MusicPlayer {
     /*
     Pauses the dispatcher.
     */
-    pauseSong(bot, lang) {
+    pauseSong(bot) {
         if (this.dispatch)
             this.dispatch.pause();
         else
             this.musicChannel.send(
-                bot.I18n.translate`Nothing is playing right now.`
+                `Nothing is playing right now.`
             );
     }
 
     /*
     Resumes the dispatcher.
     */
-    resumeSong(bot, lang) {
+    resumeSong(bot) {
         if (this.dispatch)
             this.dispatch.resume();
         else
             this.musicChannel.send(
-                bot.I18n.translate`Nothing is playing right now.`
+                `Nothing is playing right now.`
             );
 
     }
@@ -146,7 +146,7 @@ class MusicPlayer {
     /*
     Prints the queue.
     */
-    printQueue(msg, bot, lang) {
+    printQueue(msg, bot) {
         if (this.queue.length > 0) {
             try {
                 let queueString = '';
@@ -158,30 +158,30 @@ class MusicPlayer {
             } catch (err) {
                 console.log('ERROR CAUGHT:\n' + err);
                 msg.channel.send(
-                    bot.I18n.translate`Gomen, I can't display the queue right now. Try again in a few moments onegai.`
+                    `Gomen, I can't display the queue right now. Try again in a few moments onegai.`
                 );
             }
         } else {
-            msg.channel.send(bot.I18n.translate`There are no songs in the queue!`);
+            msg.channel.send(`There are no songs in the queue!`);
         }
     }
 
     /*
     Clears the queue.
     */
-    purgeQueue(msg, bot, lang) {
+    purgeQueue(msg, bot) {
         if (this.status === Statustype.PLAYING || this.status === Statustype.PAUSED) {
             this.queue = [this.queue[0]];
         } else {
             this.queue = [];
         }
-        msg.channel.send(bot.I18n.translate`The queue has been cleared.`);
+        msg.channel.send(`The queue has been cleared.`);
     }
 
     /*
     Shuffles the queue.
     */
-    shuffleQueue(msg, bot, lang) {
+    shuffleQueue(msg, bot) {
         if (this.status === Statustype.PLAYING || this.status === Statustype.PAUSED) {
             this.queue = [this.queue[0]].concat(this.shuffle(
                 this.queue.slice(1)));
@@ -194,18 +194,18 @@ class MusicPlayer {
     /*
     Displays the currently playing song and elapsed time.
     */
-    nowPlaying(msg, bot, lang) {
+    nowPlaying(msg, bot) {
         if (this.queue.length > 0) {
             let elapsedTime = this.formatTime(this.getUnixTime() -
                 this.queue[0].startTime);
             msg.channel.send(
                 new MessageEmbed()
-                .setTitle(bot.I18n.translate`🎵 \`${this.queue[0].title}\``)
+                .setTitle(`🎵 \`${this.queue[0].title}\``)
                 //.setDescription(`
                    // \```)
                 .setURL(this.queue[0].url)
-                .addField(bot.I18n.translate`Time`, `\`${elapsedTime}/${this.queue[0].time}\``, true)
-                .addField(bot.I18n.translate`Request by`, `${this.queue[0].author}`, true)
+                .addField(`Time`, `\`${elapsedTime}/${this.queue[0].time}\``, true)
+                .addField(`Request by`, `${this.queue[0].author}`, true)
                 .setThumbnail(this.queue[0].thumbnail)
             );
         } else {
@@ -281,7 +281,7 @@ class MusicPlayer {
     leaveVc(msg, bot, lang) {
         if (this.voiceConnection) {
             this.musicChannel.send(
-                new MessageEmbed().setDescription(bot.I18n.translate`⛔ Leaving **${this.voiceConnection.channel.name}**.`)
+                new MessageEmbed().setDescription(`⛔ Leaving **${this.voiceConnection.channel.name}**.`)
             );
 
             this.musicChannel = null;
