@@ -1,0 +1,29 @@
+{
+  "name": "musicalpha",
+  "version": "1.0.0",
+  "description": "A personal Discord bot written using discord.js.",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "git+https://gitlab.com/Kami-Kami/discord.js.git",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "node-opus": "^0.2.9",
+    "opusscript": "0.0.4",
+    "prism-media": "github:hydrabolt/prism-media",
+    "prompt": "^1.0.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "strip-indent": "^2.0.0",
+    "util": "^0.10.3",
+    "youtube-api-search": "0.0.5",
+    "youtube-dl": "^1.12.2",
+    "youtube-search": "^1.0.10",
+    "ytdl-core": "git+https://github.com/fent/node-ytdl-core.git"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joris vidéo",
+  "license": "MIT"
+}
