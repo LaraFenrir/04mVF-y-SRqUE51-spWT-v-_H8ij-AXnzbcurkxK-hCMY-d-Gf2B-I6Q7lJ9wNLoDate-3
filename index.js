@@ -67,7 +67,8 @@ let params  = cmdParams;
     })
 }
 if(msg.content === prefix + "play"){
-Music.cmdMusic("play", msg, params.join(""), bot)
+    if(params.join(" ").length === 0) return msg.channel.send("Please include a title or link");
+Music.cmdMusic("play", msg, params.join(" "), bot);
 }
 if(msg.content === prefix + "join"){
 Music.cmdMusic("join", msg, params.join(""), bot)
