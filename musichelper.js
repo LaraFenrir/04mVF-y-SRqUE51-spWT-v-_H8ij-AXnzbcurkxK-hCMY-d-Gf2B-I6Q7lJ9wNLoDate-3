@@ -73,7 +73,7 @@ async function cmdMusic(type, msg, msgrep, bot){
                 return await processInputRadio(msg, guild, msgrep, bot);
                 break;
             default:
-                return await msg.channel.send(`Please refer to ${tool.wrap('~help music')}.`);
+                return await msg.channel.send(`Tu as fait n'imp, regarde en utilisant ${tool.wrap('~music')}.`);
                 break;
         }
     }
@@ -113,7 +113,7 @@ function processInput(msg, guild, msgrep, bot) {
             const trackId = path[4];
             console.log("track"+ trackId);
 
-            //processSpotify.song(msg, guild, url, bot, lang);
+            //processSpotify.song(msg, guild, url, bot);
           }
         }else{
             console.log("nop");
@@ -123,7 +123,7 @@ function processInput(msg, guild, msgrep, bot) {
         } else if (url.search('youtube.com') != -1) { //Youtube.
             let playlist = url.match(/list=(\S+?)(&|\s|$|#)/); //Match playlist id.
             if (playlist) { //Playlist.
-                processYoutube.playlist(msg, guild, playlist[1], bot, lang);
+                processYoutube.playlist(msg, guild, playlist[1], bot);
             } else if (url.search(/v=(\S+?)(&|\s|$|#)/)) { //Video.
                 processYoutube.song(msg, guild, url, bot);
             } else {
@@ -139,7 +139,7 @@ function processInput(msg, guild, msgrep, bot) {
 
 
 
-function processInputRadio(msg, guild, msgrep, bot, lang) {
+function processInputRadio(msg, guild, msgrep, bot) {
     let url = msgrep;
     if(msgrep.length == 0){
         guild.queueSong(new Song(`listen.moe`, `https://listen.moe`, Songtype.RADIOMOE, msg.author.tag, 0,
@@ -154,7 +154,7 @@ function processInputRadio(msg, guild, msgrep, bot, lang) {
             new MessageEmbed().setDescription(`Enqueued listen.moe requested by ${(msg.author.tag)}`)
         );
         if (guild.status != Statustype.PLAYING) {
-            guild.playSong(msg, bot, lang);
+            guild.playSong(msg, bot);
         }
        
     }
@@ -224,7 +224,7 @@ const processTwitch = {
                 new MessageEmbed().setDescription(`Enqueued ${song.uploader_id.trim()} to position **${guild.queue.length}**`)
                 .setThumbnail(`https://www.seeklogo.net/wp-content/uploads/2016/08/twitch-logo-preview.png`));
             if (guild.status != Statustype.PLAYING) {
-                guild.playSong(msg, bot, lang);
+                guild.playSong(msg, bot);
             }
 
         });
@@ -234,13 +234,13 @@ const processTwitch = {
 
 /*Processing function for Twitch links*/
 const processSpotify = {
-    song(msg, guild, url, bot, lang){
+    song(msg, guild, url, bot){
             guild.queueSong(new Song("tesst", url, Songtype.TWITCH, msg.author.tag, 0, null,`https://www.seeklogo.net/wp-content/uploads/2016/08/twitch-logo-preview.png`,null));
             msg.channel.send(
                 new MessageEmbed().setDescription(`Enqueued ${"song.uploader_id.trim()"} to position **${guild.queue.length}**`)
                 .setThumbnail(`https://www.seeklogo.net/wp-content/uploads/2016/08/twitch-logo-preview.png`));
             if (guild.status != Statustype.PLAYING) {
-                guild.playSong(msg, bot, lang);
+                guild.playSong(msg, bot);
             }
 
         
@@ -258,7 +258,7 @@ const processYoutube = {
         ytdl.getInfo(url, (err, song) => {
             if (err) {
                 console.log(err);
-                msg.channel.send(`Gomen I couldn't queue your song.`);
+                msg.channel.send(`Je peux pas mettre ta musique dans la file d'attente..`);
                 return;
             }       
             
@@ -272,7 +272,7 @@ const processYoutube = {
             msg.channel.send({
                 embed: {
                     type: 'rich',
-                    description: `Enqueued ${song.title.trim()} to position **${guild.queue.length}**`,
+                    description: `J'ai inclu la musique ${song.title.trim()} à la position **${guild.queue.length}**`,
                     thumbnail: {
                         "url": `https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`
                     },
@@ -297,7 +297,7 @@ const processYoutube = {
             .catch(err => {
                 console.log(err);
                 msg.channel.send(
-                   `Gomen, I couldn't add your playlist to the queue. Try again later.`
+                   `Désolé je ne peux pas mettre ta playlist pour le moment.. Essaie plus tard..Et si sa marche pas contacte SCP lel.`
                 )
             });
 
@@ -354,11 +354,11 @@ const processYoutube = {
             }
 
             msg.channel.send(
-                new MessageEmbed().setDescription(bot.I18n.translate`Enqueued ${playlistItems.length} songs from ${playlistTitle} requested by ${(msg.author.tag)}`)
+                new MessageEmbed().setDescription(`Inclu ${playlistItems.length} de la playlist ${playlistTitle} par ${(msg.author.tag)}`)
                 );
 
             if (guild.status != Statustype.PLAYING) {
-                guild.playSong(msg, bot, lang);
+                guild.playSong(msg, bot);
             }
         }
     },
