@@ -78,28 +78,28 @@ if(msg.content === prefix + "leave"){
 Music.cmdMusic("leave", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "vol"){
-Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+Music.cmdMusic("vol", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "purge"){
-Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+Music.cmdMusic("purge", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "currentvol"){
-Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+Music.cmdMusic("currentvol", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "shuffle"){
-Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+Music.cmdMusic("shuffle", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "np"){
-Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+Music.cmdMusic("np", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "queue"){
-Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+Music.cmdMusic("queue", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "pause"){
-Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+Music.cmdMusic("pause", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "resume"){
-Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+Music.cmdMusic("resume", msg, cmdParams.join(""), bot)
 }
 });
 
