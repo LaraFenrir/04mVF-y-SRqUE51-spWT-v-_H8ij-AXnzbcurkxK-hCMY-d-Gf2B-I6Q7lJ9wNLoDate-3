@@ -79,6 +79,30 @@ Music.cmdMusic("join", msg, cmdParams.join(""), bot)
 if(msg.content === prefix + "leave"){
 Music.cmdMusic("leave", msg, cmdParams.join(""), bot)
 }
+if(msg.content === prefix + "vol"){
+Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+}
+if(msg.content === prefix + "purge"){
+Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+}
+if(msg.content === prefix + "currentvol"){
+Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+}
+if(msg.content === prefix + "shuffle"){
+Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+}
+if(msg.content === prefix + "np"){
+Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+}
+if(msg.content === prefix + "queue"){
+Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+}
+if(msg.content === prefix + "pause"){
+Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+}
+if(msg.content === prefix + "resume"){
+Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+}
 });
 
 
