@@ -73,7 +73,6 @@ if(msg.content.startsWith(prefix + "play")){
 Music.cmdMusic("play", msg, cmdParams.join(""), bot);
 }
 if(msg.content === prefix + "join"){
-    console.log("merde");
 Music.cmdMusic("join", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "leave"){
