@@ -190,10 +190,16 @@ ySearch(searchQuery, opts, function (err, results) {
         guild.queueSong(new Song(song.title, `https://youtube.com/watch?v=${song.video_id}`, Songtype.SEARCH, msg.author.tag, song.length_seconds ,
                 null,`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`, null));
 
-        msg.channel.send(
-        `J'ai mit la musique ${song.title.trim()} demandée par ${(msg.author.tag)}`)
-            .setThumbnail(`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`)
-        ;
+        msg.channel.send({
+            embed: {
+                type: 'rich',
+                description: `Enqueued ${song.title.trim()} to position **${guild.queue.length}**`,
+                thumbnail: {
+                    "url": `https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`
+                },
+                color: 3447003
+              }
+        });
         if (guild.status != Statustype.PLAYING) {
             guild.playSong(msg, bot);
         }
