@@ -193,7 +193,7 @@ ySearch(searchQuery, opts, function (err, results) {
         msg.channel.send(
         `J'ai mit la musique ${song.title.trim()} demandée par ${(msg.author.tag)}`)
             .setThumbnail(`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`)
-        );
+        ;
         if (guild.status != Statustype.PLAYING) {
             guild.playSong(msg, bot);
         }
