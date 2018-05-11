@@ -42,7 +42,7 @@ modify
     'music': `
 [Music Help]
 
-~music | m <function>
+Voici les commandes de la musique !
    play <url> | <search> : Ajouter un musique a la liste d'attente.
    skip                  : Passer a la musique suivante
    pause                 : Mettre en pause la musique.
@@ -52,7 +52,7 @@ modify
    purge                 : Effacer la liste d'attente.
    np                    : Regarder le nom de la musique actuelle.
 
-   vol | v <0-100>       : Ajuster le volume.
+   vol | v <0-100>       : Ajuster le volume. (cassé/20)
 
    join                  : Faire rejoindre le channel au bot.
    leave                 : Faire sortir le bot du channel.`,
