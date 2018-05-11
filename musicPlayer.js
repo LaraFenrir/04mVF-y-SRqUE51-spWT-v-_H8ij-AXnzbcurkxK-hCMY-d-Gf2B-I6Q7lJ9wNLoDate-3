@@ -177,7 +177,14 @@ class MusicPlayer {
         }
         msg.channel.send(`The queue has been cleared.`);
     }
+    purgeQueue2(msg, bot) {
+        if (this.status === Statustype.PLAYING || this.status === Statustype.PAUSED) {
+            this.queue = [this.queue[0]];
+        } else {
+            this.queue = [];
+        }
 
+    }
     /*
     Shuffles the queue.
     */
