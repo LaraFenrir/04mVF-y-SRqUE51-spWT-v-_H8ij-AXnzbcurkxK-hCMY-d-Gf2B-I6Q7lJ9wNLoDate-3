@@ -177,13 +177,13 @@ const opts = {
 };
 ySearch(searchQuery, opts, function (err, results) {
         if (err) {
-            msg.channel.send(`Sorry, I couldn't find matching song.`);
+            msg.channel.send(`Je ne peux pas trouver de musique avec ce nom là ¯\_(ツ)_/¯`);
             return console.error(err);
         }
         for (var y = 0; results[y].kind === 'youtube#channel'; y++);
         ytdl.getInfo(results[y].link, function (err, song) {
             if (err) {
-                msg.channel.send(`Sorry, I couldn't find matching song.`);
+                msg.channel.send(`Je ne peux pas trouver de musique avec ce nom là ¯\_(ツ)_/¯`);
                 return console.error(err);
             }
 
@@ -193,7 +193,7 @@ ySearch(searchQuery, opts, function (err, results) {
         msg.channel.send({
             embed: {
                 type: 'rich',
-                description: `Enqueued ${song.title.trim()} to position **${guild.queue.length}**`,
+                description: `Mise en place de la musique: ${song.title.trim()} dans la file d'attente en position: **${guild.queue.length}**`,
                 thumbnail: {
                     "url": `https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`
                 },
