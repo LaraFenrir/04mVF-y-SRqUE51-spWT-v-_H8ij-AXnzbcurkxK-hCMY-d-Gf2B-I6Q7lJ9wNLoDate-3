@@ -101,6 +101,9 @@ Music.cmdMusic("pause", msg, cmdParams.join(""), bot)
 if(msg.content === prefix + "resume"){
 Music.cmdMusic("resume", msg, cmdParams.join(""), bot)
 }
+if(msg.content === prefix + "skip"){
+Music.cmdMusic("skip", msg, cmdParams.join(""), bot)
+}
 });
 
 
