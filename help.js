@@ -42,8 +42,9 @@ modify
     'music': `
 [Music Help]
 
-Voici les commandes de la musique !
-   play <url> | <search> : Ajouter un musique a la liste d'attente.
+~music | m <function> 
+    Nouveau ! Pas la peine de mettre le "musique" devant ! juste la commadne sufffis désormais !
+   play <url>            : Ajouter un musique a la liste d'attente.
    skip                  : Passer a la musique suivante
    pause                 : Mettre en pause la musique.
    resume                : Remettre la musique.
