@@ -188,7 +188,7 @@ class MusicPlayer {
         } else {
             this.queue = this.shuffle(this.queue);
         }
-        msg.channel.send(new MessageEmbed().setDescription(bot.I18n.translate`🔀 Queue shuffled!`));
+        msg.channel.send(new MessageEmbed().setDescription(`🔀 Bah j'mélange..!`));
     }
 
     /*
