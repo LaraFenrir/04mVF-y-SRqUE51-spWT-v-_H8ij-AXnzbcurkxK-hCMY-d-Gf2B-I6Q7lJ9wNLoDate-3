@@ -48,6 +48,9 @@ async function cmdMusic(type, msg, msgrep, bot){
             case 'queue':
                 return await guild.printQueue(msg, bot);//ok
                 break;
+            case 'purge2':
+                return await guild.purgeQueue2(msg, bot);//ok
+                break;
             case 'np':
                 return await guild.nowPlaying(msg, bot);//ok
                 break;
