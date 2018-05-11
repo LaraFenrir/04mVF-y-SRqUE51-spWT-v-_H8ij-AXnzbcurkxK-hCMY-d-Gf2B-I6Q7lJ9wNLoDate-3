@@ -304,7 +304,7 @@ class MusicPlayer {
                 {
                     embed: {
                         type: 'rich',
-                        description: `⛔ Musique arrétée. **${this.voiceConnection.channel.name}**.`,
+                        description: `⛔ Musique arrétée. Je part du channel : **${this.voiceConnection.channel.name}**.`,
                         color: 3447003
                     }}
             );
