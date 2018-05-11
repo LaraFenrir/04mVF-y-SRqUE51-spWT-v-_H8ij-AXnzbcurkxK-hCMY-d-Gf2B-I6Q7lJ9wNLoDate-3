@@ -354,7 +354,7 @@ const processYoutube = {
             }
 
             msg.channel.send(
-                new MessageEmbed().setDescription(`Inclu ${playlistItems.length} de la playlist ${playlistTitle} par ${(msg.author.tag)}`)
+                `Inclu ${playlistItems.length} de la playlist ${playlistTitle} par ${(msg.author.tag)}`
                 );
 
             if (guild.status != Statustype.PLAYING) {
