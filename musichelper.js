@@ -191,7 +191,7 @@ ySearch(searchQuery, opts, function (err, results) {
                 null,`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`, null));
 
         msg.channel.send(
-            new MessageEmbed().setDescription(`Enqueued ${song.title.trim()} requested by ${(msg.author.tag)}`)
+        `J'ai mit la musique ${song.title.trim()} demandée par ${(msg.author.tag)}`)
             .setThumbnail(`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`)
         );
         if (guild.status != Statustype.PLAYING) {
