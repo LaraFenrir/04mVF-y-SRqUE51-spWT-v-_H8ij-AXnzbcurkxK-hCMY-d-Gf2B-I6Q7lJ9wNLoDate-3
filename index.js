@@ -72,10 +72,7 @@ if(msg.content.startsWith(prefix + "play")){
 Music.cmdMusic("play", msg, cmdParams.join(""), bot);
 Music.cmdMusic("join", msg, cmdParams.join(""), bot)
 }
-///if(msg.content === prefix + "join"){
-///Music.cmdMusic("join", msg, cmdParams.join(""), bot)
-//}
-if(msg.content === prefix + "leave"){
+if(msg.content === prefix + "stop"){
 Music.cmdMusic("leave", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "vol"){
