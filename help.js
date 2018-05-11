@@ -53,7 +53,7 @@ modify
 
    vol | v <0-100>       : Ajuster le volume. (cassé/20 en cour de fix lel.)
 
-   leave                 : Faire sortir le bot du channel.`,
+   stop                  : Arréter la musique.`,
 
     'ban': `
 ~ban <mention> [options]
