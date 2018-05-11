@@ -45,36 +45,32 @@ function debug(msg, bot){
             upTimeOutput = `${Math.floor(upTime/86400)}d ${Math.floor(upTime%86400/3600)}h ${Math.floor(upTime%86400%3600/60)}m ${upTime%86400%3600%60}s`;
         }
 let embed_fields = [{
-                name: "System info:",
-                value: `${process.platform}-${process.arch} with ${process.release.name} version ${process.version.slice(1)}`,
+                name: "Info système:",
+                value: `${process.platform}-${process.arch} avec le module ${process.release.name} version ${process.version.slice(1)}`,
                 inline: true
             },
             {
-                name: "Process info: PID",
+                name: "Info processeur: PID",
                 value: `${process.pid}`,
                 inline: true
             },
             {
-                name: "Process memory usage:",
+                name: "Utilisation de la mémoire:",
                 value: `${Math.ceil(process.memoryUsage().heapTotal / 1000000)} MB`,
                 inline: true
             },
             {
-                name: "System memory usage:",
+                name: "Utilisation de la mémoire système:",
                 value: `${Math.ceil((os.totalmem() - os.freemem()) / 1000000)} of ${Math.ceil(os.totalmem() / 1000000)} MB`,
                 inline: true
             },
+
             {
-                name: "Uptime bot:",
-                value: `:clock12: ${upTimeOutput}`,
-                inline: true
-            },
-            {
-                name: "Uptime computer:",
+                name: "Allumé depuis:",
                 value: `:clock1230: ${upTimeOutput2}`,
                 inline: true
             },{
-                name: 'Lib',
+                name: 'License:',
                 value: `**Discord.js**`
             }
         ];
@@ -82,8 +78,8 @@ let embed_fields = [{
         msg.channel.send({
             embed: {
                 author: {
-                    name: msg.author.username,
-                    icon_url: msg.author.avatarUrl,
+                    name: `Hartanoce RP's music bot`,
+                    icon_url: `https://cdn.discordapp.com/attachments/442145263650471956/444630115671080961/d33af0373946d18e304f57ff15569217.jpg`,
                     url:'http://google.fr'
                 },
                 color: 0x00FF00,
