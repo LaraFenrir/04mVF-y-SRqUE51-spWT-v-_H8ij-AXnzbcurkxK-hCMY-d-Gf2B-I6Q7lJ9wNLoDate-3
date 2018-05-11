@@ -199,15 +199,19 @@ class MusicPlayer {
             let elapsedTime = this.formatTime(this.getUnixTime() -
                 this.queue[0].startTime);
             msg.channel.send(
-                new Discord.MessageEmbed()
-                .setTitle(`🎵 \`${this.queue[0].title}\``)
-                //.setDescription(`
-                   // \```)
-                .setURL(this.queue[0].url)
-                .addField(`Time`, `\`${elapsedTime}/${this.queue[0].time}\``, true)
-                .addField(`Request by`, `${this.queue[0].author}`, true)
-                .setThumbnail(this.queue[0].thumbnail)
-            );
+            
+                    {
+                        embed: {
+                            type: 'rich',
+                            description: `🎵 \`${this.queue[0].title}\``,
+                            color: 3447003
+                        }});
+               
+                ///.setURL(this.queue[0].url)
+                ///.addField(`Time`, `\`${elapsedTime}/${this.queue[0].time}\``, true)
+                ///.addField(`Request by`, `${this.queue[0].author}`, true)
+                ///.setThumbnail(this.queue[0].thumbnail)
+           
         } else {
             msg.channel.send(
                 `Nothing is playing right now.`);
