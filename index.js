@@ -70,10 +70,11 @@ let cmdParams = content.substring(cmdName.length + 1).split(' ');
 if(msg.content.startsWith(prefix + "play")){
     if(cmdParams.join(" ").length === 0) return msg.channel.send("Please include a title or link");
 Music.cmdMusic("play", msg, cmdParams.join(""), bot);
-}
-if(msg.content === prefix + "join"){
 Music.cmdMusic("join", msg, cmdParams.join(""), bot)
 }
+///if(msg.content === prefix + "join"){
+///Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+//}
 if(msg.content === prefix + "leave"){
 Music.cmdMusic("leave", msg, cmdParams.join(""), bot)
 }
