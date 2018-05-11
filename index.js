@@ -60,13 +60,13 @@ bot.on('message', msg => {
 let content   = msg.content;
 let cmdName   = content.split(' ')[0].toLowerCase();
 let cmdParams = content.substring(cmdName.length + 1).split(' ');
-    if (msg.content === (prefix+"ping")) {
+
+if (msg.content === (prefix + "ping")) {
      var startTime = Date.now();
   msg.channel.sendMessage("Calcul en cours...").then((message) => {
    var endTime = Date.now();
      message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
     })
-}
 if(msg.content.startsWith(prefix + "play")){
     if(cmdParams.join(" ").length === 0) return msg.channel.send("Please include a title or link");
 Music.cmdMusic("play", msg, cmdParams.join(""), bot);
