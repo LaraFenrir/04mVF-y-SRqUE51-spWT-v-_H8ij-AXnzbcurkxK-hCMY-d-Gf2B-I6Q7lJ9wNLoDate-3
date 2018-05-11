@@ -20,7 +20,7 @@ bot.on('ready', () => {
     console.log(`${bot.user.username}  starting.`);
     console.log(`Serving ${bot.guilds.size} guilds.`);
 
-    bot.user.setActivity("Être dev par SCP_One_Zero_Six [+help] (le help serras fix soon. #Note de dev écrite a 2h36.)");
+    bot.user.setActivity("Être dev par SCP_One_Zero_Six [+help]/[+help music]");
 
 
     //Internal bot commands.
