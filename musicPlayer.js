@@ -221,7 +221,7 @@ class MusicPlayer {
     /*
     Sets the volume of the dispatcher.
     */
-    setVolume(msg, msgrep, bot, lang) {
+    setVolume(msg, msgrep, bot) {
         let vol = parseInt(msgrep) /
             100;
         if (vol && (vol >= 0 && vol <= 1)) {
@@ -237,7 +237,7 @@ class MusicPlayer {
                             color: 3447003
                         }});
             } else {
-                msg.channel.send(`Aucunes musique n'est jouée pour l'instant`);
+                msg.channel.send(`Aucune(s) musique(s) n'est jouée pour l'instant`);
             }
         } else {
             msg.channel.send(`Utilise un chiffre entre 1 et 100 !`);
