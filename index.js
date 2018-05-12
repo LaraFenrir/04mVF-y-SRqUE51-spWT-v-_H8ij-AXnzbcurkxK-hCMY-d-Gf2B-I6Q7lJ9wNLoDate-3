@@ -1,6 +1,6 @@
 'use strict';
 const Discord = require('discord.js');
-Var token = process.env.TOKEN
+var token = process.env.TOKEN
 
 const config = require('./config.json');
 const cmds = require('./commands.js');
