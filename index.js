@@ -82,6 +82,9 @@ Music.cmdMusic("vol", msg, cmdParams.join(""), bot)
 if(msg.content === prefix + "purge"){
 Music.cmdMusic("purge", msg, cmdParams.join(""), bot)
 }
+if(msg.content === prefix + "join"){
+Music.cmdMusic("join", msg, cmdParams.join(""), bot)
+}
 if(msg.content === prefix + "currentvol"){
 Music.cmdMusic("currentvol", msg, cmdParams.join(""), bot)
 }
