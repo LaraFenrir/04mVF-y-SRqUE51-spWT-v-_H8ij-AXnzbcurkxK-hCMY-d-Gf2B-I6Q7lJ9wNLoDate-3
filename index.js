@@ -1,6 +1,6 @@
 'use strict';
 const Discord = require('discord.js');
-
+Var token = process.env.TOKEN
 
 const config = require('./config.json');
 const cmds = require('./commands.js');
@@ -14,7 +14,7 @@ prompt.delimiter = '';
 
 const bot = new Discord.Client();
 
-bot.login('NDQxOTkwNjUyOTE0NDM0MDYw.Dc89gA.jP-wLxzVAw18c8y92ykryJx59gU');
+bot.login(token);
 
 bot.on('ready', () => {
     console.log(`${bot.user.username}  starting.`);
