@@ -105,6 +105,6 @@ Music.cmdMusic("resume", msg, cmdParams.join(""), bot)
 if(msg.content === prefix + "skip"){
 Music.cmdMusic("skip", msg, cmdParams.join(""), bot)
 }
-}});
+});
 
 
