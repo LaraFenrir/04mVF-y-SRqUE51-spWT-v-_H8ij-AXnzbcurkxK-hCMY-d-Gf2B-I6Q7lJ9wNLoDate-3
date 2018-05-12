@@ -77,7 +77,7 @@ Music.cmdMusic("play", msg, cmdParams.join(""), bot);
 if(msg.content === prefix + "stop"){
      if (!msg.member.voiceChannel)
         msg.channel.send("Veuillez aller dans un channel vocal pour éxécuter cette commande.")
-} else {
+else {
 Music.cmdMusic("leave", msg, cmdParams.join(""), bot);
 Music.cmdMusic("purge2", msg, cmdParams.join(""), bot)
 }
@@ -111,6 +111,6 @@ Music.cmdMusic("resume", msg, cmdParams.join(""), bot)
 if(msg.content === prefix + "skip"){
 Music.cmdMusic("skip", msg, cmdParams.join(""), bot)
 }
-});
+}});
 
 
