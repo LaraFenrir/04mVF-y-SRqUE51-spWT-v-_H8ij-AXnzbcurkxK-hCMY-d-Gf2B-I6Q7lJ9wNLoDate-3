@@ -100,7 +100,7 @@ Music.cmdMusic("resume", msg, cmdParams.join(""), bot)
 if(msg.content === prefix + "skip"){
 Music.cmdMusic("skip", msg, cmdParams.join(""), bot)
 }
-if (msg.content === (prefix+"ping")) {
+if (msg.content === prefix + "ping") {
      var startTime = Date.now();
   msg.channel.sendMessage("Calcul en cours...").then((message) => {
    var endTime = Date.now();
