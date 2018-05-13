@@ -60,7 +60,8 @@ bot.on('message', msg => {
 let content   = msg.content;
 let cmdName   = content.split(' ')[0].toLowerCase();
 let cmdParams = content.substring(cmdName.length + 1).split(' ');
-    if (msg.content === (prefix+"ping")) {
+
+if (msg.content === (prefix+"ping")) {
      var startTime = Date.now();
   msg.channel.sendMessage("Calcul en cours...").then((message) => {
    var endTime = Date.now();
