@@ -68,14 +68,14 @@ if(msg.content.startsWith(prefix + "play")){
     if(cmdParams.join(" ").length === 0) return msg.channel.send("Please include a title or link");
 Music.cmdMusic("play", msg, cmdParams.join(""), bot);
 Music.cmdMusic("join", msg, cmdParams.join(""), bot)
-}
+}}
 if(msg.content === prefix + "stop"){
 	if (!msg.member.voiceChannel) { 
     msg.channel.send("Veuillez aller dans un channel vocal pour éxécuter cette commande.")
     }else {
 Music.cmdMusic("leave", msg, cmdParams.join(""), bot);
 Music.cmdMusic("purge2", msg, cmdParams.join(""), bot)
-}
+}}
 if(msg.content === prefix + "vol"){
 Music.cmdMusic("vol", msg, cmdParams.join(""), bot)
 }
@@ -113,6 +113,6 @@ if (msg.content === prefix + "ping") {
      message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
     })
 }
-}}});
+});
 
 
