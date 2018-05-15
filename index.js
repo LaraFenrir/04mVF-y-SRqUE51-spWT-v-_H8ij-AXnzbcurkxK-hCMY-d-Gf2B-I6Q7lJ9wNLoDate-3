@@ -113,6 +113,6 @@ if (msg.content === prefix + "ping") {
      message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
     })
 }
-});
+}}});
 
 
