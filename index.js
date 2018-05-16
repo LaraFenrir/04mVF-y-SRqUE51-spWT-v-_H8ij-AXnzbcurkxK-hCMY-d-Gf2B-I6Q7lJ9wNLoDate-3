@@ -61,6 +61,15 @@ let content   = msg.content;
 let cmdName   = content.split(' ')[0].toLowerCase();
 let cmdParams = content.substring(cmdName.length + 1).split(' ');
 
+if (msg.content === (prefix+"ping")) {
+    var startTime = Date.now();
+  msg.channel.send("Calcul en cours...").then((message) => {
+    var endTime = Date.now();
+     message.edit("Bot : " + Math.round(endTime - startTime) + " ms\nAPI : "+Math.round(bot.ping)+" ms");
+	  console.log("test")
+    })
+}
+
 if(msg.content.startsWith(prefix + "play")){
 	if (!msg.member.voiceChannel) { 
     msg.channel.send("Veuillez aller dans un channel vocal pour éxécuter cette commande.")
