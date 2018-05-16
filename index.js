@@ -107,11 +107,11 @@ if(msg.content === prefix + "queue"){
 Music.cmdMusic("queue", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "pause"){
-	message.channel.send("Musique mise en pause")
+	message.channel.send("Musique mise en pause");
 Music.cmdMusic("pause", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "resume"){
-	message.channel.send("Je joue de nouveau ^^")
+	message.channel.send("Je joue de nouveau ^^");
 Music.cmdMusic("resume", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "skip"){
