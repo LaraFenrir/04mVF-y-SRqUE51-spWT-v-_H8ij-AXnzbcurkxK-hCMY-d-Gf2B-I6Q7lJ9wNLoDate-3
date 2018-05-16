@@ -51,7 +51,7 @@ modify
    purge                 : Effacer la liste d'attente.
    np                    : Regarder le nom de la musique actuelle.
 
-   vol | v <0-100>       : Ajuster le volume. (cassé/20 en cour de fix lel.)
+   vol | v <0-100>       : Ajuster le volume.
 
    stop                  : Arréter la musique.`,
 
