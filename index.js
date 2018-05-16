@@ -85,7 +85,7 @@ if(msg.content === prefix + "stop"){
 Music.cmdMusic("leave", msg, cmdParams.join(""), bot);
 Music.cmdMusic("purge2", msg, cmdParams.join(""), bot)
 }}
-if(msg.content === prefix + "vol"){
+if(msg.content.startsWith(prefix + "vol")){
 Music.cmdMusic("vol", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "purge"){
