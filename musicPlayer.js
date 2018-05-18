@@ -126,7 +126,7 @@ class MusicPlayer {
             this.dispatch.pause();
         else
             this.musicChannel.send(
-                `Nothing is playing right now.`
+                `Je ne joue rien pour l'instant`
             );
     }
 
@@ -138,7 +138,7 @@ class MusicPlayer {
             this.dispatch.resume();
         else
             this.musicChannel.send(
-                `Nothing is playing right now.`
+                `Je ne joue rien pour l'instant`
             );
 
     }
@@ -158,11 +158,11 @@ class MusicPlayer {
             } catch (err) {
                 console.log('ERROR CAUGHT:\n' + err);
                 msg.channel.send(
-                    `Gomen, I can't display the queue right now. Try again in a few moments onegai.`
+                    `Je peux pas pour l'instant.. Rééssaie plus tart..`
                 );
             }
         } else {
-            msg.channel.send(`There are no songs in the queue!`);
+            msg.channel.send(`Y'as pas de musique dans la liste d'attente..`);
         }
     }
 
@@ -175,7 +175,7 @@ class MusicPlayer {
         } else {
             this.queue = [];
         }
-        msg.channel.send(`The queue has been cleared.`);
+        msg.channel.send(`J'ai tout viré !`);
     }
     purgeQueue2(msg, bot) {
         if (this.status === Statustype.PLAYING || this.status === Statustype.PAUSED) {
@@ -221,7 +221,7 @@ class MusicPlayer {
            
         } else {
             msg.channel.send(
-                `Nothing is playing right now.`);
+                `Je ne joue rien pour l'instant`);
         }
     }
 
