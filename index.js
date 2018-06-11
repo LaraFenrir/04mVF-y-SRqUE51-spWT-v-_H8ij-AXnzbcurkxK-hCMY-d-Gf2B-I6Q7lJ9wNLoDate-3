@@ -117,6 +117,11 @@ Music.cmdMusic("resume", msg, cmdParams.join(""), bot)
 if(msg.content === prefix + "skip"){
 Music.cmdMusic("skip", msg, cmdParams.join(""), bot)
 }
+if(msg.content === prefix + "self"){           
+msg.channel.send(
+         new MessageEmbed().setDescription(`Bot développé sous discord.js par SCP_One_Zero_Six, pour touts problèmes, contactez le !`)
+         .setThumbnail(`https://cdn.discordapp.com/attachments/361946268425125898/455749872713334795/d33af0373946d18e304f57ff15569217.jpg`));
+}
 if (msg.content === prefix + "ping") {
      var startTime = Date.now();
   msg.channel.sendMessage("Calcul en cours...").then((message) => {
