@@ -110,7 +110,7 @@ function help(msg) {
 
                #Utility
                   !music
-
+               #self 
             [] = optionnelle, <> = require, | = ou
             `
         ), {
