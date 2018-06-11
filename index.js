@@ -118,9 +118,7 @@ if(msg.content === prefix + "skip"){
 Music.cmdMusic("skip", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "self"){           
-        msg.channel.send(```Je suis un bot développé sous Discord.js par #SCP_One_Zero_Six. 
-Pour toutes demandes, ou reports de bugs, contactez le, il est là pour vous aider ^^
-Je suis programmé pour jouer de la musique, et dans le futur pourquoi pas modérer ^^```)
+        msg.channel.send(```Je suis un bot développé sous Discord.js par #SCP_One_Zero_Six. Pour toutes demandes, ou reports de bugs, contactez le, il est là pour vous aider ^^Je suis programmé pour jouer de la musique, et dans le futur pourquoi pas modérer ^^```)
 }
 if (msg.content === prefix + "ping") {
      var startTime = Date.now();
