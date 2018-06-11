@@ -109,8 +109,9 @@ function help(msg) {
                !help [command]
 
                #Utility
-                  !music
-               #self 
+                  music
+               #self
+                  self
             [] = optionnelle, <> = require, | = ou
             `
         ), {
