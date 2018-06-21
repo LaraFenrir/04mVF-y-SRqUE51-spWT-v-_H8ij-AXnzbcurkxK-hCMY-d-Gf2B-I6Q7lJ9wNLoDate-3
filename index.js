@@ -22,7 +22,7 @@ bot.on('ready', () => {
 
     bot.user.setActivity("Être dev par Katarina [+help]/[+help music]");
 
-
+client.user.changeUsername("Bot Musique de Katarina")
     //Internal bot commands.
 });
 
