@@ -22,10 +22,10 @@ bot.on('ready', () => {
 
     bot.user.setActivity("Être dev par Katarina [+help]/[+help music]");
 
-client.user.changeUsername("Bot Musique de Katarina")
+
     //Internal bot commands.
 });
-
+client.user.changeUsername("Bot Musique de Katarina")
 bot.on('message', msg => {
     if (msg.author.bot || msg.channel.type != 'text')
         return; // Do not respond to messages from bots or messages that are not from guilds.
