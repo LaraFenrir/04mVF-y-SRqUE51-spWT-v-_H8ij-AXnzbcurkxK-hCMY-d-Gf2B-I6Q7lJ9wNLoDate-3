@@ -25,7 +25,7 @@ bot.on('ready', () => {
 
     //Internal bot commands.
 });
-bot.user.changeUsername("Bot Musique de Katarina")
+
 bot.on('message', msg => {
     if (msg.author.bot || msg.channel.type != 'text')
         return; // Do not respond to messages from bots or messages that are not from guilds.
