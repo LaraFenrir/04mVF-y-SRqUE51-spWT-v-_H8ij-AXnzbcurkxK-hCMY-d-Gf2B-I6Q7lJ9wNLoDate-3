@@ -37,7 +37,6 @@ bot.on('message', msg => {
     getCmdFunction(cmd)(msg);
 });
 
-setusername("Bot musique de Katarina")
 bot.on('error', (e) => console.error(e));
 bot.on('warn', (e) => console.warn(e));
 // bot.on('debug', (e) => console.info(e));
