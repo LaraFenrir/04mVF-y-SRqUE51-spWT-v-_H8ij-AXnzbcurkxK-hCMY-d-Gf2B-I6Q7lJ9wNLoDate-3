@@ -36,7 +36,9 @@ bot.on('message', msg => {
     let cmd = msg.content.split(/\s+/)[0].slice(config.prefix.length).toLowerCase();
     getCmdFunction(cmd)(msg);
 });
-
+client.user.setUsername('Bot musique de Katarina')
+  .then(user => console.log(`My new username is ${user.username}`))
+  .catch(console.error);
 bot.on('error', (e) => console.error(e));
 bot.on('warn', (e) => console.warn(e));
 // bot.on('debug', (e) => console.info(e));
