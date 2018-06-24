@@ -20,7 +20,7 @@ bot.on('ready', () => {
     console.log(`${bot.user.username}  starting.`);
     console.log(`Serving ${bot.guilds.size} guilds.`);
 
-    bot.user.setActivity("Être dev par Katarina [+help]/[+help music]");
+    bot.user.setActivity("Être dev par 𝓚𝓪𝓽𝓪𝓻𝓲𝓷𝓪 [+help]/[+help music]");
 
 
     //Internal bot commands.
