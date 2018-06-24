@@ -28,10 +28,10 @@ bot.on('ready', () => {
 
 bot.on('message', msg => {
     if (msg.author.bot || msg.channel.type != 'text')
-        return; // Do not respond to messages from bots or messages that are not from guilds.
+        return; 
 
     if (!msg.content.startsWith(config.prefix))
-        return; //Not a command.
+        return; 
 
     let cmd = msg.content.split(/\s+/)[0].slice(config.prefix.length).toLowerCase();
     getCmdFunction(cmd)(msg);
@@ -39,7 +39,7 @@ bot.on('message', msg => {
 
 bot.on('error', (e) => console.error(e));
 bot.on('warn', (e) => console.warn(e));
-// bot.on('debug', (e) => console.info(e));
+
 
 
 
@@ -119,6 +119,12 @@ Music.cmdMusic("skip", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "self"){           
         msg.channel.send("```Je suis un bot développé sous Discord.js par 𝓚𝓪𝓽𝓪𝓻𝓲𝓷𝓪#1084. Pour toutes demandes, ou reports de bugs, contactez le, il est là pour vous aider. Je suis programmé pour jouer de la musique, et dans le futur pourquoi pas modérer```"),
+{
+            'code': 'css'
+        }
+}
+if(msg.content === prefix + "self-e"){           
+        msg.channel.send("```I'm a bot created with Discord.js by 𝓚𝓪𝓽𝓪𝓻𝓲𝓷𝓪#1084. For bugs reports, or simple question, ask him, it's his job. I'm a music bot for now, but in the future, i think i'll moderate.```"),
 {
             'code': 'css'
         }
