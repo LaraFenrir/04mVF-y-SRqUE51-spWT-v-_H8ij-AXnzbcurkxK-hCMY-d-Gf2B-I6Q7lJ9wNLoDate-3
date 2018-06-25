@@ -144,7 +144,7 @@ function kick(msg){
     }
     let memberToKick = msg.mentions.members.first();
     if (memberToKick && memberToKick.kickable && (msg.member.highestRole.calculatedPosition >
-            memberToBan.highestRole.calculatedPosition || msg.guild.ownerID == msg.author.id)) {
+            memberToKick.highestRole.calculatedPosition || msg.guild.ownerID == msg.author.id)) {
         let reason = tool.parseOptionArg('reason', msg.content); // !ban @player --reason ce que vous le kick
         memberToKick.kick(reason ? reason : 'none');
     }
