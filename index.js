@@ -22,8 +22,6 @@ bot.on('ready', () => {
 
     bot.user.setActivity("Être dev par ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084 [+help]/[+help music]");
 
-
-    //Internal bot commands.
 });
 
 bot.on('message', msg => {
