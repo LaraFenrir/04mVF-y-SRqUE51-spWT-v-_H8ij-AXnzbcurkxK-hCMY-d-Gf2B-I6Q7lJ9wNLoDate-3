@@ -192,7 +192,37 @@ ySearch(searchQuery, opts, function (err, results) {
 
         guild.queueSong(new Song(song.title, `https://youtube.com/watch?v=${song.video_id}`, Songtype.SEARCH, msg.author.tag, song.length_seconds ,
                 null,`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`, null));
-        
+
+        msg.channel.send({
+            embed: {
+                type: 'rich',
+                description: `Mise en place de la musique: ${song.title.trim()} dans la file d'attente en position: **${guild.queue.length}**`,
+                thumbnail: {
+                    "url": `https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`
+                },
+                color: 3447003
+              }
+        });
+        if (guild.status != Statustype.PLAYING) {
+            guild.playSong(msg, bot);
+        }
+    
+        });
+    });
+}
+
+ySearch(searchQuery, opts, function (err, results) {
+        if (err) {
+            msg.channel.send(`Je ne peux pas trouver de musique avec ce nom là ¯\_(ツ)_/¯`);
+            return console.error(err);
+        }
+        for (var y = 0; results[y].kind === 'youtube#channel'; y++);
+        ytdl.getInfo(results[y].link, function (err, song) {
+            if (err) {
+                msg.channel.send(`Je ne peux pas trouver de musique avec ce nom là ¯\_(ツ)_/¯`);
+                return console.error(err);
+            }
+
         guild.queueSong(new Song(song.title, `https://youtu.be/${song.video_id}`, Songtype.SEARCH, msg.author.tag, song.length_seconds ,
                 null,`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`, null));
 
@@ -213,7 +243,6 @@ ySearch(searchQuery, opts, function (err, results) {
         });
     });
 }
-
 /*Processing function for Twitch links*/
 const processTwitch = {
     song(msg, guild, url, bot){
