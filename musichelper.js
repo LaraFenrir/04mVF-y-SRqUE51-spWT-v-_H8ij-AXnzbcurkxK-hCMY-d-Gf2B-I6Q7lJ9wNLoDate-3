@@ -192,6 +192,9 @@ ySearch(searchQuery, opts, function (err, results) {
 
         guild.queueSong(new Song(song.title, `https://youtube.com/watch?v=${song.video_id}`, Songtype.SEARCH, msg.author.tag, song.length_seconds ,
                 null,`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`, null));
+        
+        guild.queueSong(new Song(song.title, `https://youtu.be/${song.video_id}`, Songtype.SEARCH, msg.author.tag, song.length_seconds ,
+                null,`https://img.youtube.com/vi/${song.video_id}/mqdefault.jpg`, null));
 
         msg.channel.send({
             embed: {
