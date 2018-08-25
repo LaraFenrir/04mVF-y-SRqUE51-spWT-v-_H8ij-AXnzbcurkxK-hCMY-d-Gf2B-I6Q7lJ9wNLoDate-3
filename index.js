@@ -122,7 +122,7 @@ if(msg.content === prefix + "self"){
         }
 }
 if(msg.content === prefix + "self-e"){           
-        msg.channel.send("```I'm a bot created with Discord.js by ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084. For bugs reports, or simple question, ask her, it's her job. I'm a music bot for now, but in the future, i think i'll moderate.```"),
+        msg.channel.send("```I'm a bot created with Discord.js by ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084. For bugs reports, or simple question, ask him, it's him job. I'm a music bot for now, but in the future, i think i'll moderate.```"),
 {
             'code': 'css'
         }
