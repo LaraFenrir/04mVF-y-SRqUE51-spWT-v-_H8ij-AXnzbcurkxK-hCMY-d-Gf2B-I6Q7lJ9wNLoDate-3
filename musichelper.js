@@ -129,8 +129,13 @@ function processInput(msg, guild, msgrep, bot) {
                 processYoutube.playlist(msg, guild, playlist[1], bot);
             } else if (url.search(/v=(\S+?)(&|\s|$|#)/)) { //Video.
                 processYoutube.song(msg, guild, url, bot);
-            } else {
-                msg.channel.send(`Invalid Youtube link`);
+            } 
+        } else if (url.search('youtu.be') != -1) { //Youtube.
+            let playlist = url.match(/list=(\S+?)(&|\s|$|#)/); //Match playlist id.
+            if (playlist) { //Playlist.
+                processYoutube.playlist(msg, guild, playlist[1], bot);
+            } else if (url.search(/v=(\S+?)(&|\s|$|#)/)) { //Video.
+                processYoutube.song(msg, guild, url, bot);
             }
         }else if (url.search('soundcloud.com') != -1) { //Soundcloud.
             msg.channel.send(`Gomen, Soundcloud music isn\'nt functional right now.`);
