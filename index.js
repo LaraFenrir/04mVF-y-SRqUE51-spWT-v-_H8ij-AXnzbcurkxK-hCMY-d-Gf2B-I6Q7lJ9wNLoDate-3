@@ -127,6 +127,9 @@ if(msg.content === prefix + "self-e"){
             'code': 'css'
         }
 }
+if(msg.content === prefix + "loop"){
+Music.cmdMusic("loop", msg, cmdParams.join(""), bot)
+}
 if (msg.content === prefix + "ping") {
      var startTime = Date.now();
   msg.channel.sendMessage("Calcul en cours...").then((message) => {
