@@ -10,7 +10,6 @@ Handles the queuing, and streaming of Songs.
 class MusicPlayer {
     constructor() {
         this.queue = [];
-        this.loop = false
         this.musicChannel = null;
         this.voiceConnection = null;
         this.dispatch = null;
@@ -42,9 +41,8 @@ class MusicPlayer {
             this.musicChannel.send(`J'ai fini de tout jouer !`);
             this.changeStatus(Statustype.STOPPED);
         } else if (this.voiceConnection) {
-            let song = this.queue.shift();
+            let song = this.queue[0];
             console.log(song);
-            if (this.loop) this.queue.push(song)
             try {
                 let stream = await song.getStream();
                 /*
@@ -63,6 +61,7 @@ class MusicPlayer {
             } catch (error) {
                 console.log(error);
                 this.dispatch = null;
+                this.queue.shift();
                 return this.playSong(msg, bot);
             }
 
