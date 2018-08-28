@@ -78,9 +78,7 @@ async function cmdMusic(type, msg, msgrep, bot){
             default:
                 return await msg.channel.send(`Tu as fait n'imp, regarde en utilisant ${tool.wrap('~music')}.`);
                 break;
-             case 'loop': 
-                return await loop(msg, guild, msgrep, bot);//ok
-                break;
+
         }
     }
 }
