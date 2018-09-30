@@ -127,6 +127,9 @@ if(msg.content === prefix + "self-e"){
             'code': 'css'
         }
 }
+if(msg.content === prefix + "patreon"){
+	msg.channel.send("Tu veux me soutenir ? Soutenir mon projet ? Devenir un dieu/déèsse vivant(e) ? Aide moi sur Patreon ! https://www.patreon.com/user")
+}
 if(msg.content === prefix + "loop"){
 Music.cmdMusic("loop", msg, cmdParams.join(""), bot)
 }
