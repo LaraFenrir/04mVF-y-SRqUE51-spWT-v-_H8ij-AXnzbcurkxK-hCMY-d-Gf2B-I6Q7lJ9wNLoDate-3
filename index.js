@@ -128,7 +128,7 @@ if(msg.content === prefix + "self-e"){
         }
 }
 if(msg.content === prefix + "patreon"){
-	msg.channel.send("Tu veux me soutenir ? Soutenir mon projet ? Devenir un dieu/déèsse vivant(e) ? Aide moi sur Patreon ! https://www.patreon.com/user")
+	msg.channel.send("Tu veux me soutenir ? Soutenir mon projet ? Devenir un dieu/déèsse vivant(e) ? Aide moi sur Patreon ! https://www.patreon.com/user?u=10764113&utm_medium=social&utm_source=facebook&utm_campaign=creatorshare2")
 }
 if(msg.content === prefix + "loop"){
 Music.cmdMusic("loop", msg, cmdParams.join(""), bot)
