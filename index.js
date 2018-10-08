@@ -116,13 +116,13 @@ if(msg.content === prefix + "skip"){
 Music.cmdMusic("skip", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "self"){           
-        msg.channel.send("```Je suis un bot développé sous Discord.js par ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084. Pour toutes demandes, ou reports de bugs, contactez le, il est là pour vous aider. Je suis programmé pour jouer de la musique, et dans le futur pourquoi pas modérer```"),
+        msg.channel.send("```Je suis un bot développé sous Discord.js par ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084. Pour toutes demandes, ou reports de bugs, contactez la, elle est là pour vous aider. Je suis programmé pour jouer de la musique, et dans le futur pourquoi pas modérer```"),
 {
             'code': 'css'
         }
 }
 if(msg.content === prefix + "self-e"){           
-        msg.channel.send("```I'm a bot created with Discord.js by ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084. For bugs reports, or simple question, ask him, it's his job. Currently, I'm just a music bot, but in the future I will probably be able to moderate```"),
+        msg.channel.send("```I'm a bot created with Discord.js by ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084. For bugs reports, or simple question, ask her, it's her job. Currently, I'm just a music bot, but in the future I will probably be able to moderate```"),
 {
             'code': 'css'
         }
