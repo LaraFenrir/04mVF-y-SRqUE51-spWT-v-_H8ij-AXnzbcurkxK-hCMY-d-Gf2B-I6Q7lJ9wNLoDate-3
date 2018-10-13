@@ -75,7 +75,7 @@ if(msg.content.startsWith(prefix + "play")){
     if(cmdParams.join(" ").length === 0) return msg.channel.send("Please include a title or link");
 Music.cmdMusic("play", msg, cmdParams.join(""), bot);
 Music.cmdMusic("join", msg, cmdParams.join(""), bot)
-message.react('✅')
+message.author.react('✅')
 }}
 if(msg.content === prefix + "stop"){
 	if (!msg.member.voiceChannel) { 
