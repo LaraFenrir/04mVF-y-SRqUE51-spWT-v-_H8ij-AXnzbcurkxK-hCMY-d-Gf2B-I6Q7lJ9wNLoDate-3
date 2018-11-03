@@ -75,11 +75,11 @@ let embed_fields = [{
             }
         ];
 
-        msg.channel.send({
+       msg.channel.send({
             embed: {
                 author: {
-                    name: `Hartanoce RP's music bot`,
-                    icon_url: `https://cdn.discordapp.com/attachments/442145263650471956/444630115671080961/d33af0373946d18e304f57ff15569217.jpg`,
+                    name: `ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻's BOT`,
+                    icon_url: `https://cdn.discordapp.com/attachments/508105906261721108/508106504629387284/khyrielle.png`,
                     url:'http://google.fr'
                 },
                 color: 0x00FF00,
