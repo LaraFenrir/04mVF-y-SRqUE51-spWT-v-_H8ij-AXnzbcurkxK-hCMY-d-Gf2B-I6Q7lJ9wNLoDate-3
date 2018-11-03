@@ -69,16 +69,6 @@ if (msg.content === (prefix + "ping")) {
 	  console.log("test")
     })
 }
-
-if (message.content.startsWith("("))
-    message.delete(10000)
-    message.author.send("J'aime pas les parenthèses fdp, va sucer ton chien en te faisant fister par ton chat.")
-
-
-
-
-
-
 if(msg.content.startsWith(prefix + "play")){
 	if (!msg.member.voiceChannel) { 
     msg.channel.send("Veuillez aller dans un channel vocal pour éxécuter cette commande.")
