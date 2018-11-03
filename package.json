@@ -18,11 +18,9 @@
     "youtube-api-search": "0.0.5",
     "youtube-dl": "^1.12.2",
     "youtube-search": "^1.0.10",
+    "node": "10.3.0",
     "ytdl-core": "git+https://github.com/fent/node-ytdl-core.git"
   },
-  "engines": {
-    "node": "10.3.0"
-  }
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
