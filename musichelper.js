@@ -383,7 +383,7 @@ function timer(bot) {
             guild.voiceConnection.disconnect();
             guild.voiceConnection = null;
             guild.musicChannel.send(
-                new MessageEmbed().setDescription(`⛔ Leaving voice channel due to inactivity.`));
+                message.channel.send(`⛔ Je part automatiquement du channel à cause de l'inactivité.`));
 
             guild.changeStatus(Statustype.OFFLINE);
         }
