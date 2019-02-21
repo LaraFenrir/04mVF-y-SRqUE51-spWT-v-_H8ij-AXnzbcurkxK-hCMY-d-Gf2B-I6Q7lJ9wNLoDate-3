@@ -84,7 +84,7 @@ if(msg.content === prefix + "stop"){
 Music.cmdMusic("leave", msg, cmdParams.join(""), bot);
 Music.cmdMusic("purge2", msg, cmdParams.join(""), bot)
 }}
-if(msg.content === prefiox + "tip")
+if(msg.content === prefix + "tip")
 	message.channel.send("Tu veux m'aider ? Dans mes projets futurs ou m'faire juste plaisir ? tien passe sur tipee ! :D https://en.tipeee.com/larafenrir
 	
 	
