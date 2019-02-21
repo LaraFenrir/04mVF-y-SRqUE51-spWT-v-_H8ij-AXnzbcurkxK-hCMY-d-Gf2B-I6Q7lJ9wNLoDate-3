@@ -84,9 +84,7 @@ if(msg.content === prefix + "stop"){
 Music.cmdMusic("leave", msg, cmdParams.join(""), bot);
 Music.cmdMusic("purge2", msg, cmdParams.join(""), bot)
 }}
-if(msg.content === prefix + "tip"){
-message.channel.send("Tu veux m'aider ? Dans mes projets futurs ou m'faire juste plaisir ? tien passe sur tipee ! :D https://en.tipeee.com/larafenrir")
-}
+
 if(msg.content.startsWith(prefix + "vol")){
 Music.cmdMusic("vol", msg, cmdParams.join(""), bot)
 }
@@ -120,17 +118,18 @@ if(msg.content === prefix + "skip"){
 Music.cmdMusic("skip", msg, cmdParams.join(""), bot)
 }
 if(msg.content === prefix + "self"){           
-        msg.channel.send("```Je suis un bot développé sous Discord.js par ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084. Pour toutes demandes, ou reports de bugs, contactez le, il est là pour vous aider. Je suis programmé pour jouer de la musique, et dans le futur pourquoi pas modérer```"),
+        msg.channel.send("```Je suis un bot développé sous Discord.js par ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084. Pour toutes demandes, ou reports de bugs, contactez le, il est là pour vous aider. Je suis programmé pour jouer de la musique, et dans le futur pourquoi pas modérer. Mon créateur possède également un tipee ! Va voir par là ! :D https://en.tipeee.com/larafenrir```"),
 {
             'code': 'css'
         }
 }
 if(msg.content === prefix + "self-e"){           
-        msg.channel.send("```I'm a bot created with Discord.js by ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084. For bugs reports, or simple question, ask him, it's his job. I'm a music bot for now, but in the future, i think i'll moderate.```"),
+        msg.channel.send("```I'm a bot created with Discord.js by ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084. For bugs reports, or simple question, ask him, it's his job. I'm a music bot for now, but in the future, i think i'll moderate. My creator also own a Tipee check it out ! :D https://en.tipeee.com/larafenrir```"),
 {
             'code': 'css'
         }
 }
+
 if (msg.content === prefix + "ping") {
      var startTime = Date.now();
   msg.channel.sendMessage("Calcul en cours...").then((message) => {
