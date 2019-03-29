@@ -20,7 +20,7 @@ bot.on('ready', () => {
     console.log(`${bot.user.username}  starting.`);
     console.log(`Serving ${bot.guilds.size} guilds.`);
 
-    bot.user.setActivity("Être dev par ℒ𝓪𝓻𝓪 ℱ𝒆𝓷𝓻𝓲𝓻#1084 [+help]/[+help music]");
+    bot.user.setActivity("Être dev par 𝓢𝓷𝓾𝓻𝒇𝓵 ℒ𝓪𝓻𝓪#0195 [+help]/[+help music]");
 
 });
 
