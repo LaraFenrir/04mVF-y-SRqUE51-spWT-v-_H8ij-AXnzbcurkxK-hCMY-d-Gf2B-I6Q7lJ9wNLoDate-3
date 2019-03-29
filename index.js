@@ -21,7 +21,7 @@ bot.on('ready', () => {
     console.log(`Serving ${bot.guilds.size} guilds.`);
 
     bot.user.setActivity("Être dev par 𝓢𝓷𝓾𝓻𝒇𝓵 ℒ𝓪𝓻𝓪#0195 [+help]/[+help music]");
-
+    bot.user.setUsername("𝓢𝓷𝓾𝓻𝒇𝓵 ℒ𝓪𝓻𝓪's bot");
 });
 
 bot.on('message', msg => {
